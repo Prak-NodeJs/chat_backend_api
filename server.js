@@ -15,7 +15,10 @@ const replyRoutes = require('./routes/replyRoutes')
 const { notFound} =  require('./middleware/ApiError')
 
 connectDB()
-app.use(cors())
+app.use(cors({
+    origin:"https://mern-chat-frontend-i3wx.vercel.app"
+}
+))
 app.use(express.json())
 
 
@@ -62,7 +65,7 @@ const server = app.listen(PORT, ()=>{
 const io = require('socket.io')(server, {
     pingTimeout:6000,
     cors:{
-        origin:"http://localhost:5173"
+        origin:"https://mern-chat-frontend-i3wx.vercel.app"
     }
 })
 
