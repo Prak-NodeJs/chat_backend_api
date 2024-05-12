@@ -15,10 +15,11 @@ const replyRoutes = require('./routes/replyRoutes')
 const { notFound} =  require('./middleware/ApiError')
 
 connectDB()
+
 app.use(cors({
-    origin:"https://mern-chat-frontend-i3wx.vercel.app"
-}
-))
+    origin: "https://mern-chat-frontend-i3wx.vercel.app",
+    methods: ["GET", "POST"] // Specify the allowed methods here
+}));
 app.use(express.json())
 
 
